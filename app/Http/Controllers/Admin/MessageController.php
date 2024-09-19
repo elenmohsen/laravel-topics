@@ -57,9 +57,6 @@ class MessageController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         Contact::where('id', $id)->delete();
