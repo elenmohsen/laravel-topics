@@ -46,9 +46,6 @@ class TestimonialController extends Controller
        //return ("data entered successfully");              
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
        
