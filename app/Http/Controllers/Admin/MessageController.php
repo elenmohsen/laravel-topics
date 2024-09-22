@@ -38,7 +38,7 @@ class MessageController extends Controller
      */
     public function show(string $id)
     {
-       
+
     }
 
     /**
@@ -68,10 +68,4 @@ class MessageController extends Controller
         return view ('admin.messages.message_details', compact('contact'));
      }
 
-    /* public function activeRead(string $id)
-     {
-         $contact= Contact::findOrFail($id);
-         $contact->active = 1;
-         $contact->save();
-     }*/
 }

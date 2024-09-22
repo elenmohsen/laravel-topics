@@ -57,12 +57,12 @@ Route::prefix('admin')-> group(function () {
        'as' => 'categories.',
        'middleware' => 'verified',
       ],function () {
-    Route::get('index','index')->name('index');
-    Route::get('create','create')->name('create');
-    Route::post('', 'store')->name('store');
-    Route::get('/{id}/edit','edit')->name('edit');
-    Route::put('/{id}','update')->name('update');
-    Route::delete('/{id}/delete', 'destroy')->name('destroy');
+     Route::get('index','index')->name('index');
+     Route::get('create','create')->name('create');
+     Route::post('', 'store')->name('store');
+     Route::get('/{id}/edit','edit')->name('edit');
+     Route::put('/{id}','update')->name('update');
+     Route::delete('/{id}/delete', 'destroy')->name('destroy');
   });
 
   Route::group([
@@ -71,28 +71,26 @@ Route::prefix('admin')-> group(function () {
     'as' => 'users.',
     'middleware' => 'verified',
     ],function () {
-  Route::get('index','index')->name('index');
-  Route::get('create','create')->name('create');
-  Route::post('','store')->name('store');
-  Route::get('/{id}/edit','edit')->name('edit');
-  Route::put('/{id}','update')->name('update');
-});
+   Route::get('index','index')->name('index');
+   Route::get('create','create')->name('create');
+   Route::post('','store')->name('store');
+   Route::get('/{id}/edit','edit')->name('edit');
+   Route::put('/{id}','update')->name('update');
+  });
 
 Route::group([
-  'prefix' => 'messages',
-  'controller' => MessageController::class,
-  'as' => 'messages.',
-  'middleware' => 'verified',
-  ],function () {
+    'prefix' => 'messages',
+    'controller' => MessageController::class,
+    'as' => 'messages.',
+    'middleware' => 'verified',
+   ],function () {
   Route::get('index','index')->name('index');
   Route::delete('/{id}/delete', 'destroy')->name('destroy');
-});
+  });
 });
 
 
 Route::get('message_detail/{id}', [MessageController::class, 'messagedetail'])->name('messageDetail');
-
-
 
 Auth::routes(['verify'=> true]);
 

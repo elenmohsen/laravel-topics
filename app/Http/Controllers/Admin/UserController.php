@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -35,7 +36,10 @@ class UserController extends Controller
                                       'userName'=>'required|string|max:100',
                                       'email'=> 'required|string|max:255|unique:users',
                                       'password'=>'required|string|min:8|confirmed',
-                           ]);
+                                     
+                           ]);    
+        $user['password'] = Hash::make($user['password']);
+        $user['email_verified_at'] = now();          
         User::create($user);
         return redirect()->route('users.index'); 
         //return ("data entered successfully");    
